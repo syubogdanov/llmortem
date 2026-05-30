@@ -80,12 +80,12 @@ llmortem/
 
 
 ## Запуск
-# 1. Установить зависимости
+### 1. Установить зависимости
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 
-# 2. Запустить Postgres
+### 2. Запустить Postgres
 docker compose up -d postgres
 
 По умолчанию используется база:
@@ -100,30 +100,30 @@ port: 5432
 
 ## Основные endpoint'ы
 
-# Healthcheck
+### Healthcheck
   curl http://localhost:8000/health | python3 -m json.tool
 
-# Пересобрать индекс
+### Пересобрать индекс
   curl -X POST http://localhost:8000/reindex | python3 -m json.tool
 
-# Поиск по индексу
+### Поиск по индексу
   curl -X POST http://localhost:8000/search \
     -H "Content-Type: application/json" \
     -d '{"query":"queue lag", "top_k": 5}' \
     | python3 -m json.tool
 
-# Вопрос по документации
+### Вопрос по документации
   curl -X POST http://localhost:8000/ask/docs \
     -H "Content-Type: application/json" \
     -d '{"query":"Как зарегистрироваться в системе?"}' \
     | python3 -m json.tool
 
-# Incident-вопрос
+### Incident-вопрос
   curl -X POST http://localhost:8000/ask/docs \
     -H "Content-Type: application/json" \
     -d '{"query":"Сломалась очередь, queue lag растет. Что делать?"}' \
     | python3 -m json.tool
-# Черновик документации
+### Черновик документации
   curl -X POST http://localhost:8000/draft-doc \
     -H "Content-Type: application/json" \
     -d '{
@@ -132,7 +132,7 @@ port: 5432
     }' \
     | python3 -m json.tool
 
-# Postmortem
+### Postmortem
   curl -X POST http://localhost:8000/postmortem \
     -H "Content-Type: application/json" \
     -d '{

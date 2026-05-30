@@ -30,7 +30,7 @@ BM25 index
    | prompt with grounded context
    v
 Ollama
-
+```
 ## Postgres используется для хранения конфигурационных параметров retrieval-логики:
 
 stopwords;
